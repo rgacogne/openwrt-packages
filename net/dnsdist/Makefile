@@ -65,8 +65,6 @@ define Package/dnsdist/install/Default
 	$(INSTALL_DIR) $(1)/etc
 	$(INSTALL_DIR) $(1)/etc/dnsdist.conf.d
 	$(INSTALL_CONF) ./files/dnsdist.conf $(1)/etc/dnsdist.conf
-	$(INSTALL_DIR) $(1)/etc/config
-	$(INSTALL_CONF) ./files/dnsdist.config $(1)/etc/config/dnsdist
 	$(INSTALL_DIR) $(1)/etc/init.d
 	$(INSTALL_BIN) ./files/dnsdist.init $(1)/etc/init.d/dnsdist
 	$(INSTALL_DIR) $(1)/usr/bin
