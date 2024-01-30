@@ -13,7 +13,6 @@ PKG_LICENSE:=BSD-2-Clause
 PKG_LICENSE_FILES:=LICENSE
 
 include $(INCLUDE_DIR)/package.mk
-
 include ../../lang/rust/rust-values.mk
 
 MAKE_VARS += RUSTC_TARGET_ARCH=$(RUSTC_TARGET_ARCH)
@@ -32,8 +31,8 @@ define Package/quiche
 endef
 
 define Package/quiche/install
-  $(INSTALL_DIR) $(1)/usr/bin/
-  $(CP) $(PKG_BUILD_DIR)/libquiche.so $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/usr/bin/
+	$(CP) $(PKG_BUILD_DIR)/libquiche.so $(1)/usr/lib/
 endef
 
 $(eval $(call BuildPackage,quiche))
