@@ -4,7 +4,7 @@ PKG_NAME:=quiche
 PKG_VERSION:=0.20.0
 PKG_RELEASE:=1
 
-PKG_SOURCE_URL:=https://github.com/cloudflare/quiche/archive/refs/tags/$(PKG_VERSION).tar.gz
+PKG_SOURCE_URL:=https://github.com/cloudflare/quiche/archive/refs/tags/$(PKG_VERSION).tar.gz?
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_HASH:=7125bc82ddcf38fbfbc69882ccb2723bfb4d5bfeb42718b8291d26ec06042e38
 
