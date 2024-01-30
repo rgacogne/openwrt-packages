@@ -6,7 +6,7 @@ PKG_RELEASE:=1
 
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.bz2
 PKG_SOURCE_URL:=https://downloads.powerdns.com/releases/
-PKG_HASH=:be379f29b9f2993c9cd7cb2a3f3494fe574f08697c579e4667818a633a44177d
+PKG_HASH=be379f29b9f2993c9cd7cb2a3f3494fe574f08697c579e4667818a633a44177d
 
 PKG_MAINTAINER:=Peter van Dijk <peter.van.dijk@powerdns.com>
 PKG_LICENSE:=GPL-2.0-only
