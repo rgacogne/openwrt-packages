@@ -32,7 +32,7 @@ define Package/quiche
 endef
 
 define Package/quiche/install
-  $$(INSTALL_DIR) $$(1)/usr/bin/
+  $(INSTALL_DIR) $(1)/usr/bin/
   $(CP) $(PKG_BUILD_DIR)/libquiche.so $(1)/usr/lib/
 endef
 
