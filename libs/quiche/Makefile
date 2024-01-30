@@ -26,7 +26,7 @@ RUST_PKG_FEATURES:=ffi,boringssl-boring-crate
 define Package/quiche
   SECTION:=libs
   CATEGORY:=Libraries
-  TITLE:=CloudFlare Quiche
+  TITLE:=Cloudflare Quiche
   URL:=https://github.com/cloudflare/quiche
   DEPENDS:=
 endef
