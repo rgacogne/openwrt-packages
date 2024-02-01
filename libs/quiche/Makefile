@@ -27,9 +27,21 @@ define Package/quiche
   DEPENDS:=$(RUST_ARCH_DEPENDS)
 endef
 
+define Package/quiche/Compile
+	+$(CARGO_PKG_VARS) \
+	cargo build --release \
+		--profile $(CARGO_PKG_PROFILE) \
+		--root $(PKG_INSTALL_DIR) \
+		--no-default-features --features ffi,boringssl-boring-crate\
+		--path "$(PKG_BUILD_DIR)" \
+		$(if $(filter --jobserver%,$(PKG_JOBS)),,-j1) \
+		--package quiche
+endef
+
 define Package/quiche/install
 	$(INSTALL_DIR) $(1)/usr/bin/
 	$(CP) $(PKG_BUILD_DIR)/libquiche.so $(1)/usr/lib/
 endef
 
+#Build/Compile=$(call Build/Compile/Cargo,quiche/,--no-default-features)
 $(eval $(call BuildPackage,quiche))
