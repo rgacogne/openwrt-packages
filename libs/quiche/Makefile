@@ -31,14 +31,18 @@ define Build/Compile
 	+$(CARGO_PKG_VARS) \
 	cargo build --release \
 		--profile $(CARGO_PKG_PROFILE) \
-		--no-default-features --features ffi,boringssl-boring-crate\
+		--no-default-features --features ffi,pkg-config-meta,boringssl-boring-crate \
+		-C "$(PKG_BUILD_DIR)" \
 		$(if $(filter --jobserver%,$(PKG_JOBS)),,-j1) \
 		--package quiche
+	find "$(PKG_BUILD_DIR)"
 endef
 
 define Package/quiche/install
-	$(INSTALL_DIR) $(1)/usr/bin/
-	$(CP) $(PKG_BUILD_DIR)/libquiche.so $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/usr/lib/
+	$(CP) $(PKG_BUILD_DIR)/target/release/libquiche.so $(1)/usr/lib/
+	$(INSTALL_DIR) $(1)/usr/lib/pkgconfig
+	$(CP) $(PKG_BUILD_DIR)/target/release/quiche.pc $(1)/usr/lib/pkgconfig
 endef
 
 #Build/Compile=$(call Build/Compile/Cargo,quiche/,--no-default-features)
