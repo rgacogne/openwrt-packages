@@ -32,7 +32,6 @@ define Build/Compile
 	cargo build --release \
 		--profile $(CARGO_PKG_PROFILE) \
 		--no-default-features --features ffi,boringssl-boring-crate\
-		--path "$(PKG_BUILD_DIR)" \
 		$(if $(filter --jobserver%,$(PKG_JOBS)),,-j1) \
 		--package quiche
 endef
