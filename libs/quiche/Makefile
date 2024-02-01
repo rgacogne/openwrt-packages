@@ -27,7 +27,7 @@ define Package/quiche
   DEPENDS:=$(RUST_ARCH_DEPENDS)
 endef
 
-define Package/quiche/Compile
+define Build/Compile
 	+$(CARGO_PKG_VARS) \
 	cargo build --release \
 		--profile $(CARGO_PKG_PROFILE) \
