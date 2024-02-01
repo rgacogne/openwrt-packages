@@ -31,7 +31,6 @@ define Build/Compile
 	+$(CARGO_PKG_VARS) \
 	cargo build --release \
 		--profile $(CARGO_PKG_PROFILE) \
-		--root $(PKG_INSTALL_DIR) \
 		--no-default-features --features ffi,boringssl-boring-crate\
 		--path "$(PKG_BUILD_DIR)" \
 		$(if $(filter --jobserver%,$(PKG_JOBS)),,-j1) \
