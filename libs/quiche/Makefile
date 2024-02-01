@@ -12,13 +12,10 @@ PKG_MAINTAINER:=Remi Gacogne <remi.gacogne@powerdns.com>
 PKG_LICENSE:=BSD-2-Clause
 PKG_LICENSE_FILES:=LICENSE
 
-include $(INCLUDE_DIR)/package.mk
-include ../../lang/rust/rust-values.mk
-
-MAKE_VARS += RUSTC_TARGET_ARCH=$(RUSTC_TARGET_ARCH)
-MAKE_VARS += RUST_TARGET=--target=$(RUSTC_TARGET_ARCH)
-
 PKG_BUILD_DEPENDS:=rust/host
+
+include $(INCLUDE_DIR)/package.mk
+include ../../lang/rust/rust-package.mk
 
 RUST_PKG_FEATURES:=ffi,boringssl-boring-crate
 
@@ -27,7 +24,7 @@ define Package/quiche
   CATEGORY:=Libraries
   TITLE:=Cloudflare Quiche
   URL:=https://github.com/cloudflare/quiche
-  DEPENDS:=
+  DEPENDS:=$(RUST_ARCH_DEPENDS)
 endef
 
 define Package/quiche/install
