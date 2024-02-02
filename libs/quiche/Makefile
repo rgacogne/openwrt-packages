@@ -27,6 +27,10 @@ define Package/quiche
   DEPENDS:=$(RUST_ARCH_DEPENDS)
 endef
 
+CARGO_PKG_VARS= \
+        $(CARGO_PKG_CONFIG_VARS) \
+        MAKEFLAGS="$(PKG_JOBS)"
+
 define Build/Compile
 	cd "$(PKG_BUILD_DIR)" && $(CARGO_PKG_VARS) \
 		cargo build --release \
