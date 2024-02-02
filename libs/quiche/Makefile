@@ -29,10 +29,9 @@ endef
 
 define Build/Compile
 	+$(CARGO_PKG_VARS) \
-	cargo build --release \
+	cd "$(PKG_BUILD_DIR)" && cargo build --release \
 		--profile $(CARGO_PKG_PROFILE) \
 		--no-default-features --features ffi,pkg-config-meta,boringssl-boring-crate \
-		-C "$(PKG_BUILD_DIR)" \
 		$(if $(filter --jobserver%,$(PKG_JOBS)),,-j1) \
 		--package quiche
 	find "$(PKG_BUILD_DIR)"
