@@ -34,6 +34,10 @@ config adblock-fast 'config'
 	option procd_boot_delay '0'
 	option procd_boot_wan_timeout '60'
 	option verbosity '2'
+	option heartbeat_domain 'heartbeat.melmac.ca'
+	option heartbeat_sleep_timeout '10'
+	option sanity_check '1'
+	option update_config_sizes '1'
 
 config file_url
 	option name 'Hagezi - Pro'
@@ -74,6 +78,13 @@ config file_url
 	option name 'Bongochong - Combined Privacy Block Lists (TLD Optimized)'
 	option url 'https://cdn.jsdelivr.net/gh/bongochong/CombinedPrivacyBlockLists/NoFormatting/cpbl-ctld.txt'
 	option size '2608152'
+	option action 'block'
+	option enabled '0'
+
+config file_url
+	option name 'CERT Polska - Dangerous Websites'
+	option url 'https://hole.cert.pl/domains/v2/domains.txt'
+	option size '731479'
 	option action 'block'
 	option enabled '0'
 

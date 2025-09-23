@@ -5,7 +5,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=postgresql
-PKG_VERSION:=15.6
+PKG_VERSION:=17.5
 PKG_RELEASE:=1
 PKG_MAINTAINER:=Daniel Golle <daniel@makrotopia.org>
 PKG_LICENSE:=PostgreSQL
@@ -17,7 +17,7 @@ PKG_SOURCE_URL:=\
 	http://ftp.postgresql.org/pub/source/v$(PKG_VERSION) \
 	ftp://ftp.postgresql.org/pub/source/v$(PKG_VERSION)
 
-PKG_HASH:=8455146ed9c69c93a57de954aead0302cafad035c2b242175d6aa1e17ebcb2fb
+PKG_HASH:=fcb7ab38e23b264d1902cb25e6adafb4525a6ebcbd015434aeef9eda80f528d8
 
 PKG_BUILD_FLAGS:=no-mips16
 PKG_FIXUP:=autoreconf
@@ -137,6 +137,7 @@ HOST_CONFIGURE_ARGS += \
 			--disable-rpath \
 			--without-bonjour \
 			--without-gssapi \
+			--without-icu \
 			--without-ldap \
 			--without-openssl \
 			--without-pam \
@@ -153,6 +154,7 @@ CONFIGURE_ARGS += \
 			--disable-rpath \
 			--without-bonjour \
 			--without-gssapi \
+			--without-icu \
 			--without-ldap \
 			--without-openssl \
 			--without-pam \
